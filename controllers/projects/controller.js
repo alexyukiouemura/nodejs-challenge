@@ -34,10 +34,12 @@ function get(req, res) {
 
 function post(req, res) {
   if (req.body.name === '') {
-    res.status(400).json({ message: 'Empty name' });
+    return res.status(400).json({ message: 'Empty name' });
   }
-  projectsService.create(req.body);
-  return res.status(201).json({ message: 'Project Created' });
+  else{
+    projectsService.create(req.body);
+    return res.status(201).json({ message: 'Project Created' });
+  }
 }
 
 module.exports = { get, post, getRisk };
