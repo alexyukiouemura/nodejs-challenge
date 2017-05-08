@@ -4,7 +4,6 @@ const projects = require('./controllers/projects/controller');
 
 const app = express();
 const port = 3000;
-const risk = projects.getRisk();
 
 app.use(controllers);
 
@@ -15,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/risk', (req, res) => {
+  const risk = projects.getRisk();
   res.send(`Projetos em risco! <br> ${risk}`);
 });
 
